@@ -1,3 +1,15 @@
+#modes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#size {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .grid {
     height: 500px;
     width: 500px;
