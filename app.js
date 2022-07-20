@@ -12,6 +12,10 @@ let size = DEFAULT_SIZE;
 let mode = DEFAULT_MODE;
 let color = DEFAULT_COLOR;
 
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+
 //Listeners
 sizeButton.addEventListener('click', enterSize);
 
@@ -29,6 +33,7 @@ function createGrid(size) {
         const gridElement = document.createElement('div');
         gridElement.classList.add("grid-element");
         gridElement.addEventListener('mouseover', changeColor);
+        gridElement.addEventListener('mousedown', changeColor);
         grid.appendChild(gridElement);
     }
 }
@@ -47,9 +52,10 @@ function enterSize() {
 }
 
 function changeColor(e) {
-    if (mode === "color") {
+    if (e.type === 'mouseover' && !mouseDown) { return; }
+    if (mode === "color") { //Mode: Color
         e.target.style.backgroundColor = color;
-    } else if (mode === "shade") {
+    } else if (mode === "shade") { //Mode: Shade
         let current = e.target.style.backgroundColor;
         if (current === "") {
             current = "rgb(230,230,230)";
@@ -69,10 +75,10 @@ function changeColor(e) {
                     "," + (g - 25) + "," + (b - 25) + ")";
             }
         }
-    } else if (mode === "rainbow") {
-        let R = Math.floor(Math.random()*255);
-        let G = Math.floor(Math.random()*255);
-        let B = Math.floor(Math.random()*255);
+    } else if (mode === "rainbow") { //Mode: Rainbow
+        let R = Math.floor(Math.random()*256);
+        let G = Math.floor(Math.random()*256);
+        let B = Math.floor(Math.random()*256);
         e.target.style.backgroundColor = `rgb(${R},${G},${B})`;
     }
 }
