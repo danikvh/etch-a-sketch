@@ -53,7 +53,6 @@ function clearGrid() {
     size = slider.value;
     gridSize.textContent = `${size} x ${size}`;
     clearGrid();
-    createGrid(size);
 } 
 
 function changeColor(e) {
