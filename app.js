@@ -18,7 +18,6 @@ document.body.onmouseup = () => (mouseDown = false)
 
 //Listeners
 sizeButton.addEventListener('click', enterSize);
-
 colorButton.addEventListener('click', changeMode);
 shadeButton.addEventListener('click', changeMode);
 rainbowButton.addEventListener('click', changeMode);
@@ -84,9 +83,28 @@ function changeColor(e) {
 }
 
 function changeMode(e) {
+    activateButton(e.target.getAttribute("id"));
     mode = e.target.getAttribute("id");
     clearGrid();
     createGrid(size);
+}
+
+function activateButton(e) {
+    if (mode === 'rainbow') {
+        rainbowButton.classList.remove("activated");
+    } else if (mode === 'color') {
+        colorButton.classList.remove("activated");
+    } else if (mode === 'shade') {
+        shadeButton.classList.remove("activated");
+    }
+
+    if (e === 'rainbow') {
+        rainbowButton.classList.add("activated");
+    } else if (e === 'color') {
+        colorButton.classList.add("activated");
+    } else if (e === 'shade') {
+        shadeButton.classList.add("activated");
+    }
 }
 
 

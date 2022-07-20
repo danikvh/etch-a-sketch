@@ -1,7 +1,48 @@
+body {
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.header {
+    background-color: rgb(164, 189, 255);
+    margin-bottom: 25px;
+    width: 100%;
+}
+
 #modes {
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+.mode_button {
+    width: 150px;
+    height: 35px;
+    border: 1px none black;
+    background-color: rgb(174, 198, 206);
+    border-radius: 7px;
+}
+
+.mode_button:active {
+    background-color: rgb(154, 178, 186);
+    color: var(--primary-light);
+}
+
+.mode_button.activated {
+    background-color: rgb(18, 72, 90);
+    color: white;
 }
 
 #size {
@@ -13,12 +54,22 @@
 .grid {
     height: 500px;
     width: 500px;
-    background-color: var(--secondary-light);
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: grid;
+    border: 2px solid rgb(65, 65, 65);
+    border-radius: 2px;
 }
 
 .grid-element {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.142);
     user-select: none;
+}
+
+button {
+  transition: transform 0.1s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
 }
