@@ -15,11 +15,18 @@
     <div id="modes">
         <button class="mode_button" id="color">Black Mode</button>
         <button class="mode_button" id="shade">Shade Mode</button>
-        <button class="mode_button" id="rainbow">Rainbow Mode</button>
+        <button class="mode_button" id="rainbow">Rainbow Mode</button>       
+    </div>
+    <div id="clean">
+        <button class="clean_button" id="eraser">Eraser</button>
+        <button class="clean_button" id="clear">Clear Grid</button>
     </div>
     <div id="size">
-        <h2>Change size</h2>
-        <button id="size">Size</button>
+        <div>Size:</div>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="16" class="slider" id="myRange">
+        </div>
+        <span id="grid-size">16 x 16</span>
     </div>
     <div id="grid" class="grid"></div>
 </body>
